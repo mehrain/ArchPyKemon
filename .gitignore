@@ -162,3 +162,4 @@ cython_debug/
 #.idea/
 src/parses/BDparsed.csv
 src/parses/BDraw.html
+src/parses/BDparsed_with_pokemon.csv

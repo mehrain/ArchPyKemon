@@ -25,7 +25,10 @@ def main():
         for row in reader:
             rank = int(row[0].split(': ')[1])
             pokemon = pokedex.get(rank).name
-            row.append(pokemon)
+            row.append(f"Pokemon based on rank: {pokemon}")
             writer.writerow(row)
 
     print(f"Updated CSV file with Pokémon saved to {output_file}")
+
+if __name__ == "__main__":
+    main()
