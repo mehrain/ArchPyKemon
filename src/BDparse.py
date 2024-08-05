@@ -50,11 +50,44 @@ class BDParser:
     @staticmethod
     def start():
         parser = BDParser()
-        parser.crawl_data()
-        parser.save_html('/home/mehrain/Workspace/github.com/mehrain/ArchPyKemon/src/parses/BDraw.html')
-        parser.parse_html()
-        parser.sort_entries()
-        parser.reassign_ranks()
-        parser.write_to_csv('/home/mehrain/Workspace/github.com/mehrain/ArchPyKemon/src/parses/BDparsed.csv')
+        try:
+            parser.crawl_data()
+            print("Data crawled successfully.")
+        except Exception as e:
+            print(f"Failed to crawl data: {e}")
+            return
 
-BDParser.start()
+        try:
+            parser.save_html('/home/mehrain/Workspace/github.com/mehrain/ArchPyKemon/src/parses/BDraw.html')
+            print("HTML saved successfully.")
+        except Exception as e:
+            print(f"Failed to save HTML: {e}")
+            return
+
+        try:
+            parser.parse_html()
+            print("HTML parsed successfully.")
+        except Exception as e:
+            print(f"Failed to parse HTML: {e}")
+            return
+
+        try:
+            parser.sort_entries()
+            print("Entries sorted successfully.")
+        except Exception as e:
+            print(f"Failed to sort entries: {e}")
+            return
+
+        try:
+            parser.reassign_ranks()
+            print("Ranks reassigned successfully.")
+        except Exception as e:
+            print(f"Failed to reassign ranks: {e}")
+            return
+
+        try:
+            parser.write_to_csv('/home/mehrain/Workspace/github.com/mehrain/ArchPyKemon/src/parses/BDparsed.csv')
+            print("CSV written successfully.")
+        except Exception as e:
+            print(f"Failed to write CSV: {e}")
+            return
